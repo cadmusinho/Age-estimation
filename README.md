@@ -40,10 +40,9 @@ Pobranie danych:
   - Plik .mat zawierający metadane dla każdego zdjęcia (np. dob, photo_taken, gender, face_location, itp.)
 
 Wczytanie i analiza metadanych:
-- Metadane są przetwarzane w Pythonie (np. za pomocą scipy.io.loadmat()).
+- Metadane są przetwarzane w Pythonie
 - Dla każdego zdjęcia wyliczana jest wartość wieku według wzoru:
-wiek = photo_taken - rok urodzenia
-(z uwzględnieniem, że zdjęcia uznaje się za wykonane w połowie roku).
+  - wiek = photo_taken - rok urodzenia
 
 Weryfikacja i czyszczenie danych:
 - Usuwanie uszkodzonych obrazów (np. plików, które nie otwierają się lub są puste).
@@ -56,7 +55,7 @@ Kadrowanie i wyodrębnienie twarzy:
 - Można wykorzystać gotowe przycięte obrazy (wiki_crop, imdb_crop) lub wykonać własne kadrowanie.
 
 Transformacja i normalizacja danych:
-- Obrazy są przeskalowywane do standardowego rozmiaru (np. 224x224 piksele) odpowiedniego dla sieci VGG-16.
+- Obrazy są przeskalowywane do standardowego rozmiaru odpowiedniego dla sieci VGG-16.
 - Dane są normalizowane (np. przez odjęcie średniej ImageNet mean i podzielenie przez std).
 - Obrazy mogą być konwertowane do formatu tensorów (torch.Tensor, np.array), a metadane przekształcane do etykiet liczbowych.
 
@@ -66,11 +65,6 @@ Podział na zbiory treningowe i testowe:
 
 ### Oczekiwany wynik:
 Gotowy i czysty zbiór danych, zawierający:
-- obrazy twarzy o odpowiedniej jakości,
-- przypisane etykiety wieku (liczbowe),
-
-jednorodny format danych wejściowych.
-
-Dane są w pełni gotowe do użycia w procesie trenowania modelu AI, a także odpowiednio przygotowane do walidacji i testowania.
-
-Zbiór może być dodatkowo wzbogacony o augmentację (obracanie, skalowanie, zmiana jasności) podczas treningu, aby zwiększyć różnorodność próbek.
+- obrazy twarzy o odpowiedniej jakości
+- przypisane etykiety wieku
+- jednorodny format danych wejściowych
