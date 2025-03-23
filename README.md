@@ -1,20 +1,20 @@
 # Podstawy Sztucznej Inteligencji
 
-##1. Określenie tematu i celu projektu, analiza wymagań 
-###Temat projektu
+## 1. Określenie tematu i celu projektu, analiza wymagań 
+### Temat projektu
 Estymacja wieku osoby na podstawie zdjęcia twarzy z wykorzystaniem sztucznej inteligencji.
 
-###Cel projektu
+### Cel projektu
 Stworzenie modelu AI, który na podstawie zdjęcia twarzy osoby będzie w stanie oszacować jej wiek. Model ma za zadanie uczyć się wzorców wizualnych związanych z procesem starzenia (np. zmarszczki, kształt twarzy, struktura skóry), aby z jak największą dokładnością przypisać przewidywany wiek.
 
-###Zakres projektu
+### Zakres projektu
 - Pozyskanie, analiza i przygotowanie zbioru danych (IMDB-WIKI)
 - Budowa i trenowanie modelu konwolucyjnej sieci neuronowej (CNN)
 - Ocena jakości modelu (np. poprzez wskaźnik MAE)
 - Testowanie modelu na nieznanych zdjęciach
 - Możliwe rozszerzenie: przygotowanie prostego interfejsu użytkownika lub API
 
-###Wymagania funkcjonalne i niefunkcjonalne
+### Wymagania funkcjonalne i niefunkcjonalne
 Funkcjonalne:
 - Możliwość wprowadzenia zdjęcia i uzyskania przewidywanego wieku
 - Obsługa różnych formatów obrazów (np. JPG, PNG)
