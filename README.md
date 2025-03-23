@@ -1,70 +1,69 @@
-# Podstawy Sztucznej Inteligencji
+# Fundamentals of Artificial Intelligence
+## 1. Project Topic and Objective, Requirements Analysis
+### Project Topic
+Age estimation based on a person's facial image using artificial intelligence.
 
-## 1. Określenie tematu i celu projektu, analiza wymagań 
-### Temat projektu
-Estymacja wieku osoby na podstawie zdjęcia twarzy z wykorzystaniem sztucznej inteligencji.
+### Project Objective
+To create an AI model capable of estimating a person's age based on their facial image. The model aims to learn visual patterns related to aging (e.g., wrinkles, face shape, skin texture) to predict age as accurately as possible.
 
-### Cel projektu
-Stworzenie modelu AI, który na podstawie zdjęcia twarzy osoby będzie w stanie oszacować jej wiek. Model ma za zadanie uczyć się wzorców wizualnych związanych z procesem starzenia (np. zmarszczki, kształt twarzy, struktura skóry), aby z jak największą dokładnością przypisać przewidywany wiek.
+### Project Scope
+- Data acquisition, analysis, and preparation (IMDB-WIKI)
+- Building and training a convolutional neural network (CNN) model
+- Evaluating model performance (e.g., using MAE)
+- Testing the model on unseen images
+- Possible extension: preparing a simple user interface or API
 
-### Zakres projektu
-- Pozyskanie, analiza i przygotowanie zbioru danych (IMDB-WIKI)
-- Budowa i trenowanie modelu konwolucyjnej sieci neuronowej (CNN)
-- Ocena jakości modelu (np. poprzez wskaźnik MAE)
-- Testowanie modelu na nieznanych zdjęciach
-- Możliwe rozszerzenie: przygotowanie prostego interfejsu użytkownika lub API
+### Functional and Non-functional Requirements
+Functional:
+- Ability to input an image and obtain the predicted age
+- Support for various image formats (e.g., JPG, PNG)
+- Face pre-processing: detection and cropping
 
-### Wymagania funkcjonalne i niefunkcjonalne
-Funkcjonalne:
-- Możliwość wprowadzenia zdjęcia i uzyskania przewidywanego wieku
-- Obsługa różnych formatów obrazów (np. JPG, PNG)
-- Pre-processing twarzy: detekcja i kadrowanie
+Non-functional:
+- Performance: the model should achieve a reasonably low Mean Absolute Error (MAE). For well-performing age estimation models, an MAE of around 4–5 years is considered satisfactory.
+- Scalability: potential to use a larger dataset in the future or deploy the model in a production environment.
+- Security: the model and data will be processed locally, with no private image uploads to the cloud.
+- Resources: the model will be trained using frameworks such as TensorFlow or PyTorch, with optional GPU support (CUDA). Data will be pre-analyzed in Python.
 
-Niefunkcjonalne:
-- Wydajność: model powinien osiągnąć rozsądnie niską wartość MAE (Mean Absolute Error). Dla dobrych modeli do estymacji wieku przyjmuje się, że MAE na poziomie ok. 4-5 lat jest zadowalający.
-- Skalowalność: możliwość użycia większego zbioru danych w przyszłości lub przeniesienia modelu do środowiska produkcyjnego.
-- Bezpieczeństwo: model i dane będą przetwarzane lokalnie, bez przesyłania prywatnych zdjęć do chmury.
-- Zasoby: model będzie trenowany z wykorzystaniem frameworków takich jak TensorFlow lub PyTorch, z możliwym wsparciem GPU (CUDA). Dane będą wstępnie analizowane w Pythonie.
+## 2. Dataset and Data Preparation
+### Dataset Used in the Project
+The project utilizes the publicly available IMDB-WIKI dataset, containing over 500,000 facial images of celebrities along with metadata such as date of birth, date of the photo, gender, and the person's name.
+The dataset was prepared by researchers as part of the DEX (Deep EXpectation) model, which won 1st place in the LAP 2015 age estimation challenge. The data comes from two sources:
+- IMDb: actor and actress photos with associated metadata
+- Wikipedia: public figures' profiles with similar information
 
-## 2. Zbiór danych i ich przygotowanie
-### Zbiór danych użyty w projekcie
-Do realizacji projektu wykorzystano publicznie dostępny zbiór danych IMDB-WIKI, który zawiera łącznie ponad 500 000 zdjęć twarzy celebrytów wraz z metadanymi – datą urodzenia, datą wykonania zdjęcia, płcią oraz nazwą osoby.
-Zbiór został przygotowany przez badaczy w ramach prac nad modelem DEX (Deep EXpectation), który zdobył 1. miejsce w konkursie LAP 2015 na estymację wieku. Dane pochodzą z dwóch źródeł:
-- IMDb: zdjęcia aktorów i aktorek z przypisanymi metadanymi,
-- Wikipedia: profile osób publicznych z analogicznymi informacjami.
+### Data Preparation Stages:
+Data download:
+- The data was downloaded as a .tar archive containing:
+  - Facial images (raw or already cropped)
+  - A .mat file with metadata for each image (e.g., dob, photo_taken, gender, face_location, etc.)
 
-### Etapy przygotowania danych:
-Pobranie danych:
-- Dane zostały pobrane w formie archiwum .tar, które zawiera:
-  - Obrazy twarzy (surowe lub już przycięte – cropped)
-  - Plik .mat zawierający metadane dla każdego zdjęcia (np. dob, photo_taken, gender, face_location, itp.)
+Metadata loading and analysis:
+- Metadata is processed using Python
+- Age for each image is calculated using the formula:
+  - age = photo_taken - year of birth
 
-Wczytanie i analiza metadanych:
-- Metadane są przetwarzane w Pythonie
-- Dla każdego zdjęcia wyliczana jest wartość wieku według wzoru:
-  - wiek = photo_taken - rok urodzenia
+Data verification and cleaning:
+- Removing corrupted images (e.g., files that don't open or are empty)
+- Filtering out images with multiple faces – if second_face_score exceeds a certain threshold, the image is rejected
+- Discarding cases with insufficient data – e.g., missing dob, photo_taken, unknown gender (if required)
+- Removing outliers – e.g., images with age below 0 or over 100, or very low face detection score
 
-Weryfikacja i czyszczenie danych:
-- Usuwanie uszkodzonych obrazów (np. plików, które nie otwierają się lub są puste).
-- Filtrowanie zdjęć z wieloma twarzami – jeśli second_face_score jest większy niż określony próg, zdjęcie jest odrzucane.
-- Odrzucanie przypadków bez wystarczających danych – np. brak dob, photo_taken, nieznana płeć (jeśli potrzebna).
-- Usunięcie danych odstających (outliers) – np. zdjęcia z wiekiem poniżej 0 lub powyżej 100 lat, lub o bardzo niskim score detekcji twarzy.
+Cropping and extracting faces:
+- Faces are cropped based on the face_location coordinates with an additional 40% margin (to help the model capture features surrounding the face)
+- You can use pre-cropped images (wiki_crop, imdb_crop) or perform custom cropping
 
-Kadrowanie i wyodrębnienie twarzy:
-- Twarze są przycinane na podstawie współrzędnych face_location z dodatkowym marginesem 40% (aby model mógł lepiej uchwycić cechy otaczające twarz).
-- Można wykorzystać gotowe przycięte obrazy (wiki_crop, imdb_crop) lub wykonać własne kadrowanie.
+Data transformation and normalization:
+- Images are resized to a standard size suitable for the VGG-16 network
+- Data is normalized (e.g., subtracting the ImageNet mean and dividing by std)
+- Images may be converted to tensor formats (e.g., torch.Tensor, np.array), and metadata transformed into numerical labels
 
-Transformacja i normalizacja danych:
-- Obrazy są przeskalowywane do standardowego rozmiaru odpowiedniego dla sieci VGG-16.
-- Dane są normalizowane (np. przez odjęcie średniej ImageNet mean i podzielenie przez std).
-- Obrazy mogą być konwertowane do formatu tensorów (torch.Tensor, np.array), a metadane przekształcane do etykiet liczbowych.
+Splitting into training and testing sets:
+- Data is split into training, validation, and test sets (e.g., 70%-15%-15%)
+- The split should ensure an even distribution of ages in each group (stratification) to avoid age bias
 
-Podział na zbiory treningowe i testowe:
-- Dane są dzielone na zbiór treningowy, walidacyjny i testowy (np. 70%-15%-15%).
-- Podział powinien zapewniać równomierne rozłożenie wieku w każdej grupie (stratyfikacja), aby uniknąć biasu wiekowego.
-
-### Oczekiwany wynik:
-Gotowy i czysty zbiór danych, zawierający:
-- obrazy twarzy o odpowiedniej jakości
-- przypisane etykiety wieku
-- jednorodny format danych wejściowych
+### Expected Outcome:
+A clean and ready-to-use dataset containing:
+- facial images of sufficient quality
+- corresponding age labels
+- uniform input data format
