@@ -1,5 +1,5 @@
 # Fundamentals of Artificial Intelligence
-## 1. Project Topic and Objective, Requirements Analysis
+## 1. Project Topic and Objective
 ### Project Topic
 Age estimation based on a person's facial image using artificial intelligence.
 
@@ -13,8 +13,7 @@ To create an AI model capable of estimating a person's age based on their facial
 - Testing the model on unseen images
 - Possible extension: preparing a simple user interface or API
 
-### Functional and Non-functional Requirements
-Functional:
+### Requirements
 - Ability to input an image and obtain the predicted age
 - Support for various image formats (e.g., JPG, PNG)
 - For now, no pre-processing: the user must provide a well-cropped photo of the face with the smallest possible background
