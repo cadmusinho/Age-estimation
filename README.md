@@ -7,9 +7,9 @@ Age estimation based on a person's facial image using artificial intelligence.
 To create an AI model capable of estimating a person's age based on their facial image. The model aims to learn visual patterns related to aging (e.g., wrinkles, face shape, skin texture) to predict age as accurately as possible.
 
 ### Project Scope
-- Data acquisition, analysis, and preparation (IMDB-WIKI)
-- Building and training a convolutional neural network (CNN) model
-- Evaluating model performance (e.g., using MAE)
+- Data acquisition and preparation
+- Training a model
+- Evaluating model performance
 - Testing the model on unseen images
 - Possible extension: preparing a simple user interface or API
 
