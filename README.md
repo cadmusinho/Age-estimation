@@ -20,7 +20,6 @@ To create an AI model capable of estimating a person's age based on their facial
 
 The model will be trained using frameworks Python frameworks and libraries (PyTorch, Torchvision, matplotlib, pandas, Pillow).
 
-## 2. Dataset and Data Preparation
 ### Dataset Used in the Project
 The project utilizes the publicly available IMDB-WIKI dataset, containing facial images of celebrities along with metadata such as date of birth, date of the photo, gender, and the person's name. The data comes from IMDb: actor and actress photos with associated metadata.
 
@@ -45,3 +44,15 @@ A clean and ready-to-use dataset containing:
 - facial images of sufficient quality
 - corresponding age labels
 - uniform input data format
+
+## 2. Data Preparation
+- **Age Calculation**:  
+  The age for each image was calculated as the difference between the year the photo was taken and the year of birth of the person in the image.
+
+- **Data Cleaning**:  
+  - Removal of images with incorrect or missing data (invalid dates, missing names, or paths to photo).
+  - Removal of images with multiple faces detected (based on `second_face_score`).
+  - Removal of records with age values beyond the fixed range (lower than 10, higher than 95).
+
+- **Preliminary Data Analysis**:  
+  - Determining the number of images that meet the criteria for age and quality.
