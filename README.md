@@ -56,5 +56,5 @@ A clean and ready-to-use dataset containing:
 
 - **Preliminary Data Analysis**:  
   - Determining the number of images that meet the criteria for age and quality.
-  - 
+  
 80% of the photos that meet the criteria will be used in the training set, while the remaining 20% will be used in the test set.
