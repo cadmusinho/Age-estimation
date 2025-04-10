@@ -52,7 +52,7 @@ A clean and ready-to-use dataset containing:
 - **Data Cleaning**:  
   - Removal of images with incorrect or missing data (invalid dates, missing names, or paths to photo).
   - Removal of images with multiple faces detected (based on `second_face_score`).
-  - Removal of records with age values beyond the fixed range (lower than 10, higher than 95).
+  - Removal of records with age values beyond the fixed range (lower than 18, higher than 65).
 
 - **Preliminary Data Analysis**:  
   - Determining the number of images that meet the criteria for age and quality.
