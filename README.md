@@ -35,7 +35,7 @@ Data verification and cleaning:
 - Removing corrupted images
 - Filtering out images with multiple faces
 - Discarding cases with insufficient data
-- Removing outliers – (images with age below 0 or over 100, etc.)
+- Removing outliers – (images beyond the range, etc.)
 
 Splitting into training and testing sets
 
