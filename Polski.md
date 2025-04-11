@@ -57,4 +57,22 @@ Wiek dla każdego zdjęcia obliczany jest jako różnica między rokiem wykonani
 ### Wstępna analiza danych:
 - Określenie liczby zdjęć, które spełniają kryteria wieku i jakości.
 
+Zbiór danych został przeanalizowany pod kątem rozkładu liczby zdjęć w klasach wiekowych. Wystąpiły duże różnice – niektóre grupy wiekowe miały mniej niż 1000 zdjęć.
+Jak pokazano, liczba próbek znacznie się różniła w zależności od wieku — niektóre klasy zawierały mniej niż 1000 zdjęć.
+
+![2](https://github.com/user-attachments/assets/ec374735-61b3-429d-99e3-6b3d96892b64)
+
+W celu zbalansowania klas wiekowych zastosowano różne techniki augmentacji obrazów, takie jak:
+
+- obrót
+- przesunięcie
+- zoomowanie
+- odbicie lustrzane
+
+Celem było zwiększenie liczby przykładów w każdej klasie wiekowej do co najmniej **5500**, uzyskując bardziej jednolity rozkład.
+
+Drugi histogram przedstawia zbiór danych po zbalansowaniu, z porównywalną liczbą obrazów w każdej klasie.
+
+![1](https://github.com/user-attachments/assets/bf77ae92-9c70-43ee-8b6d-ce19bd61b714)
+
 80% zdjęć, które spełniają kryteria, zostanie użytych w zbiorze treningowym, a pozostałe 20% w zbiorze testowym.
