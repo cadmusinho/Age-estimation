@@ -56,5 +56,15 @@ A clean and ready-to-use dataset containing:
 
 - **Preliminary Data Analysis**:  
   - Determining the number of images that meet the criteria for age and quality.
-  
-80% of the photos that meet the criteria will be used in the training set, while the remaining 20% will be used in the test set.
+
+The dataset was analyzed to check the distribution of images across age classes. As shown, the number of samples varied significantly depending on the age, with some classes containing fewer than 1000 images.
+
+![2](https://github.com/user-attachments/assets/507dfe2c-47ac-4a91-ad08-fb0a5a28b292)
+
+Different data augmentation techniques were applied to underrepresented classes. These included operations such as image rotation, shifting, zooming, and flipping. The goal was to increase the number of samples per age class to a minimum of 5500, thus achieving a more uniform distribution.
+
+The second histogram presents the dataset after balancing, with the number of images in each class being comparable.
+
+![1](https://github.com/user-attachments/assets/9fb6bd3b-06dc-47ac-98a8-c96ee69f1c47)
+
+80% of the photos will be used in the training set, while the remaining 20% will be used in the test set.
