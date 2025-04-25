@@ -83,3 +83,13 @@ The second histogram presents the dataset after balancing, with the number of im
 ![1](https://github.com/user-attachments/assets/9fb6bd3b-06dc-47ac-98a8-c96ee69f1c47)
 
 80% of the photos will be used in the training set, while the remaining 20% will be used in the test set.
+
+## 3. Model training
+
+The code uses ResNet50 as a base model. It loads the dataset, processes images (resizes and normalizes them), and splits it into training and validation sets. The model consists of ResNet50 (pre-trained on ImageNet), followed by a global average pooling layer and two fully connected layers for age prediction. It is trained using Adam optimizer with MSE loss and evaluated with MAE.
+
+Key points:
+ - ResNet50 (frozen layers) + custom dense layers
+ - The model is trained for 4 epochs with checkpoints
+ - Images are resized to 224x224, normalized, and labeled with age
+ - The trained model is saved as model_age_estimation.h5
