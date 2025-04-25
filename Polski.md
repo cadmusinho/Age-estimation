@@ -76,3 +76,13 @@ Drugi histogram przedstawia zbiór danych po zbalansowaniu, z porównywalną lic
 ![1](https://github.com/user-attachments/assets/bf77ae92-9c70-43ee-8b6d-ce19bd61b714)
 
 80% zdjęć, które spełniają kryteria, zostanie użytych w zbiorze treningowym, a pozostałe 20% w zbiorze testowym.
+
+## 3. Trenowanie modelu
+
+Kod używa ResNet50 jako modelu bazowego. Ładuje dane, przetwarza obrazy (zmienia ich rozmiar i normalizuje), a następnie dzieli je na zestawy treningowe i walidacyjne. Model składa się z ResNet50 (wstępnie wytrenowanego na ImageNet), po którym następuje warstwa globalnego uśredniania oraz dwie warstwy w pełni połączone do predykcji wieku. Trening odbywa się przy użyciu optymalizatora Adam, a jako funkcja straty stosowane jest MSE, z oceną modelu na podstawie MAE.
+
+Główne punkty:
+ - ResNet50 (zamrożone warstwy) + niestandardowe warstwy gęste
+ - Model trenowany przez 4 epoki z checkpointami
+ - Obrazy są zmieniane na rozmiar 224x224, normalizowane i opatrzone etykietą wieku
+ - Wytrenowany model jest zapisywany jako model_age_estimation.h5
