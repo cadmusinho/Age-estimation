@@ -42,8 +42,6 @@ def load_dataset_from_df(df):
 
 
 def train_model():
-    print("🚀 Rozpoczynam trening modelu...")
-
     dataset = Dataset(BASE_PATH)
     dataset.load_dataset()
     df = dataset.df_clean.copy()
