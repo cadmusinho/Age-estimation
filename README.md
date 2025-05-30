@@ -93,3 +93,25 @@ Key points:
  - The model is trained for 4 epochs with checkpoints
  - Images are resized to 224x224, normalized, and labeled with age
  - The trained model is saved as model_age_estimation.h5
+
+## 4. Model evaluation and optimization
+
+### Metrics Selection
+
+For assessing the model’s performance, classic classification metrics were chosen: accuracy and loss. The CrossEntropyLoss function was used as the loss criterion, fitting perfectly for multi-class classification tasks.
+
+### Model Testing
+
+The model was trained on the UTKFace dataset, divided into 14 age classes representing specific age ranges. Evaluation was conducted on a separate validation set, split from the training data.
+
+The model achieved a steady accuracy of approximately **63%**, confirming a moderate ability to distinguish age groups based on facial images.
+
+### Conclusions
+
+Despite hardware constraints, the implemented optimization techniques enabled achieving a decent accuracy level. The **~63%** accuracy result is satisfactory as a proof-of-concept and solid foundation for further experiments and development.
+
+To improve results further, it is recommended to:
+
+- Train longer on stronger hardware or use pretrained models;
+- Experiment with more advanced augmentation;
+- Expand the dataset and utilize better validation techniques.
