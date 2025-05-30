@@ -108,11 +108,12 @@ For assessing the model’s performance, classic classification metrics were cho
 
 The model was trained on the IMDB dataset. Evaluation was conducted on a separate validation set, split from the training data.
 
-The model achieved a steady accuracy of approximately **63%**, confirming a moderate ability to approximate age based on facial images.
+The model achieved a Mean Absolute Error of approximately 16 years, meaning the predicted ages differ from the true ages by an average of ±14 years.
+
 
 ### Conclusions
 
-Despite hardware constraints, the implemented optimization techniques enabled achieving a decent accuracy level. The **~63%** accuracy result is satisfactory as a proof-of-concept and solid foundation for further experiments and development.
+Despite hardware constraints, the implemented optimization techniques enabled achieving a decent accuracy level. The MAE od 16 years result is satisfactory as a proof-of-concept and solid foundation for further experiments and development.
 
 To improve results further, it is recommended to:
 
