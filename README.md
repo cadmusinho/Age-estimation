@@ -113,7 +113,7 @@ The model achieved a Mean Absolute Error of approximately 16 years, meaning the 
 
 ### Conclusions
 
-Despite hardware constraints, the implemented optimization techniques enabled achieving a decent accuracy level. The MAE od 16 years result is satisfactory as a proof-of-concept and solid foundation for further experiments and development.
+Despite hardware constraints, the implemented optimization techniques enabled achieving a decent accuracy level. The MAE of 16 years result is satisfactory as a proof-of-concept and solid foundation for further experiments and development.
 
 To improve results further, it is recommended to:
 
