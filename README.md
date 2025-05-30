@@ -94,6 +94,7 @@ Key points:
  - Optimizer: Adam
  - Batch size: 32
  - Loss function: Mean Squared Error
+ - Metrics: Mean Absolute Error
  - Images are resized to 224x224, normalized, and labeled with age
  - The trained model is saved as model_age_estimation.h5
 
