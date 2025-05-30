@@ -91,6 +91,9 @@ The code uses ResNet50 as a base model. It loads the dataset, processes images (
 Key points:
  - ResNet50 (frozen layers) + custom dense layers
  - The model is trained for 4 epochs with checkpoints
+ - Optimizer: Adam
+ - Batch size: 32
+ - Loss function: Mean Squared Error
  - Images are resized to 224x224, normalized, and labeled with age
  - The trained model is saved as model_age_estimation.h5
 
