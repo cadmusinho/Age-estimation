@@ -108,7 +108,7 @@ For assessing the model’s performance, classic classification metrics were cho
 
 The model was trained on the IMDB dataset. Evaluation was conducted on a separate validation set, split from the training data.
 
-The model achieved a Mean Absolute Error of approximately 16 years, meaning the predicted ages differ from the true ages by an average of ±14 years.
+The model achieved a Mean Absolute Error of approximately 16 years, meaning the predicted ages differ from the true ages by an average of ±16 years.
 
 ### Conclusions
 
