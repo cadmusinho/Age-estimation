@@ -102,13 +102,13 @@ Key points:
 
 ### Metrics Selection
 
-For assessing the model’s performance, classic classification metrics were chosen: accuracy and loss. The CrossEntropyLoss function was used as the loss criterion, fitting perfectly for multi-class classification tasks.
+For assessing the model’s performance, classic classification metrics were chosen: mean square error and mean absolute error.
 
 ### Model Testing
 
-The model was trained on the UTKFace dataset, divided into 14 age classes representing specific age ranges. Evaluation was conducted on a separate validation set, split from the training data.
+The model was trained on the IMDB dataset. Evaluation was conducted on a separate validation set, split from the training data.
 
-The model achieved a steady accuracy of approximately **63%**, confirming a moderate ability to distinguish age groups based on facial images.
+The model achieved a steady accuracy of approximately **63%**, confirming a moderate ability to approximate age based on facial images.
 
 ### Conclusions
 
