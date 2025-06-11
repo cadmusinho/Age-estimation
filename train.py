@@ -15,7 +15,7 @@ from dataset import Dataset
 BASE_PATH = "C:/Users/cadmus/PycharmProjects/PSI/clean_dataset/"
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
-EPOCHS = 4
+EPOCHS = 6
 
 checkpoint_cb = ModelCheckpoint(
     filepath='model_checkpoint_epoch_{epoch:02d}.h5',

@@ -90,6 +90,32 @@ The code uses ResNet50 as a base model. It loads the dataset, processes images (
 
 Key points:
  - ResNet50 (frozen layers) + custom dense layers
- - The model is trained for 4 epochs with checkpoints
+ - The model is trained for 6 epochs with checkpoints
+ - Optimizer: Adam
+ - Batch size: 32
+ - Loss function: Mean Squared Error
+ - Metrics: Mean Absolute Error
  - Images are resized to 224x224, normalized, and labeled with age
  - The trained model is saved as model_age_estimation.h5
+
+## 4. Model evaluation and optimization
+
+### Metrics Selection
+
+For assessing the model’s performance, classic classification metrics were chosen: mean square error and mean absolute error.
+
+### Model Testing
+
+The model was trained on the IMDB dataset. Evaluation was conducted on a separate validation set, split from the training data.
+
+The model achieved a Mean Absolute Error of approximately 16 years, meaning the predicted ages differ from the true ages by an average of ±16 years.
+
+### Conclusions
+
+Despite hardware constraints, the implemented optimization techniques enabled achieving a decent accuracy level. The MAE of 16 years result is satisfactory as a proof-of-concept and solid foundation for further experiments and development.
+
+To improve results further, it is recommended to:
+
+- Train longer on stronger hardware or use pretrained models;
+- Experiment with more advanced augmentation;
+- Expand the dataset and utilize better validation techniques.
